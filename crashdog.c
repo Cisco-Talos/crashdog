@@ -289,15 +289,15 @@ void triage(char **argv){
 				setenv("ASAN_OPTIONS",  "abort_on_error=1:"
                            				"detect_leaks=0:"
                            				"symbolize=0:"
-                           				"allocator_may_return_null=1", 0);
+                           				"allocator_may_return_null=1", 1);
 			}
 
 			if(ld_preload){
 #ifdef __APPLE__                
-				setenv("DYLD_INSERT_LIBRARIES", ld_preload, 0);  
+				setenv("DYLD_INSERT_LIBRARIES", ld_preload, 1);  
 #else
 				  
-                setenv("LD_PRELOAD",ld_preload,0);            
+                setenv("LD_PRELOAD",ld_preload,1);            
 #endif
                 
                 
